@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const HomePage = () => {
@@ -6,15 +6,14 @@ const HomePage = () => {
 
   const handleCheck = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/user/login', {
-        username,
-      });
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/user/login",
+        {
+          username,
+        }
+      );
 
-      if (response.data.success) {
-        alert(`Chào bạn ${username}`);
-      } else {
-        alert("Không quen");
-      }
+      console.log(response.data);
     } catch (error) {
       console.error("Có lỗi xảy ra:", error);
       alert("Có lỗi xảy ra. Vui lòng thử lại!");
@@ -23,9 +22,9 @@ const HomePage = () => {
 
   return (
     <>
-      <input 
-        type="text" 
-        placeholder="Tài khoản" 
+      <input
+        type="text"
+        placeholder="Tài khoản"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
@@ -34,4 +33,4 @@ const HomePage = () => {
   );
 };
 
-export default memo(HomePage);
+export default HomePage;
