@@ -6,15 +6,13 @@ const HomePage = () => {
 
   const handleCheck = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/user/login', {
-        username,
-      });
-
-      if (response.data.success) {
-        alert(`Chào bạn ${username}`);
-      } else {
-        alert("Không quen");
-      }
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/user/login",
+        {
+          username,
+        }
+      );
+      console.log(response);
     } catch (error) {
       console.error("Có lỗi xảy ra:", error);
       alert("Có lỗi xảy ra. Vui lòng thử lại!");
@@ -23,9 +21,9 @@ const HomePage = () => {
 
   return (
     <>
-      <input 
-        type="text" 
-        placeholder="Tài khoản" 
+      <input
+        type="text"
+        placeholder="Tài khoản"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
@@ -34,4 +32,4 @@ const HomePage = () => {
   );
 };
 
-export default memo(HomePage);
+export default HomePage;
