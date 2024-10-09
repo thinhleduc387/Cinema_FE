@@ -6,14 +6,15 @@ const HomePage = () => {
 
   const handleCheck = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/v1/user/login",
-        {
-          username,
-        }
-      );
+      const response = await axios.post('http://localhost:3000/api/v1/user/login', {
+        username,
+      });
 
-      console.log(response.data);
+      if (response.data.success) {
+        alert(`Chào bạn ${username}`);
+      } else {
+        alert("Không quen");
+      }
     } catch (error) {
       console.error("Có lỗi xảy ra:", error);
       alert("Có lỗi xảy ra. Vui lòng thử lại!");
