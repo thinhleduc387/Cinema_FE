@@ -6,9 +6,12 @@ const HomePage = () => {
 
   const handleCheck = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/user/login', {
-        username,
-      });
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/user/login",
+        {
+          username,
+        }
+      );
 
       if (response.data.success) {
         alert(`Chào bạn ${username}`);
